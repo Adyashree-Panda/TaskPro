@@ -14,6 +14,24 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+        // Save security questions first if they don’t exist
+    SecurityQuestion q1 = findOrCreateQuestion(user.getQuestion1());
+    SecurityQuestion q2 = findOrCreateQuestion(user.getQuestion2());
+    SecurityQuestion q3 = findOrCreateQuestion(user.getQuestion3());
+
+    user.setQuestion1(q1);
+    user.setQuestion2(q2);
+    user.setQuestion3(q3);
+
+    return userRepository.save(user);
+}
+
+private SecurityQuestion findOrCreateQuestion(SecurityQuestion question) {
+    return securityQuestionRepository
+        .findByQuestion(question.getQuestion())
+        .orElseGet(() -> securityQuestionRepository.save(question));
+}
+
     public Optional<User> findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
