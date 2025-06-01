@@ -4,4 +4,6 @@ import com.taskmanager.entity.SecurityQuestion;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SecurityQuestionRepository extends JpaRepository<SecurityQuestion, Long> {
+
+    Optional<SecurityQuestion> findByQuestion(String question);
 }
