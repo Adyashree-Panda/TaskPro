@@ -1,0 +1,3 @@
+i told you na that the security questions must appear as drop down in the sign up [age then during the forgot paasword link first it should verify that email exists or not if exist then it should ask for security question and answers at that time the security questions must be fetched from backend and be shown on the page the user only have to answer them correactly if the answers doesn't match with what he have given during signup time then show an error message that answers doesn't match. and if the answers matched then  ask for reset 
+
+Please write in English language.
